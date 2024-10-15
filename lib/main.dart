@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator/home_screen.dart';
-import 'package:flutter_calculator/local_storage.dart';
+import 'package:flutter_calculator/view/screens/home_screen.dart';
+import 'package:flutter_calculator/core/local_storage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,11 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Swift Calc',
       theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: TextScaler.linear(1.0)),
+          child: child!,
+        );
+      },
       home: HomeScreen(),
     );
   }

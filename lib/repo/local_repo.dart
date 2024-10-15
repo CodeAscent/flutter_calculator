@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter_calculator/calc_model.dart';
-import 'package:flutter_calculator/local_storage.dart';
+import 'package:flutter_calculator/models/calc_model.dart';
+import 'package:flutter_calculator/core/local_storage.dart';
 
 class LocalRepo {
   Future<void> addHistoryItem(CalcModel calcModel) async {
