@@ -138,6 +138,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             calcModel.secondNum =
                                 (calcModel.secondNum ?? '') + numb;
                           }
+                          if (calcModel.answer != null) {
+                            clearCalc();
+                          }
                           setState(() {});
                           print('---------------> ${calcModel.firstNum}');
                           print('---------------> ${calcModel.symbol}');
@@ -149,6 +152,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     return GestureDetector(
                         onTap: () {
                           calcModel.symbol = symbols[index];
+                          if (calcModel.secondNum != null) {
+                            calcModel.firstNum = calcModel.answer;
+                            calcModel.secondNum = null;
+                            calcModel.answer = null;
+                          }
                           setState(() {});
                           print('---------------> ${calcModel.symbol}');
                         },
